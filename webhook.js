@@ -16,7 +16,7 @@ let server = http.createServer((req,res)=>{
     })
     res.on('end',(buffer)=>{
       let body = Buffer.concat(buffers)
-      let event = req.header['x-gitHub-event'] //event=push
+      let event = req.header['x-github-event'] //event=push
       //github 请求过来的时候，要传递请求体body另外还会传一个签名，需要验证签名
       let signature = req.headers['x-hub-Signature']
       if(signature !== sign(body)){
