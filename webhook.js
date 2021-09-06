@@ -25,16 +25,16 @@ let server = http.createServer((req,res)=>{
       res.setHeader('Content-Type','application/json');
       res.end(JSON.stringify({ok:true}));
       if(event == 'push'){
+        //开始部署
         let payload =JSON.parse(body)
         let child = spawn('sh',[`./${payload.reposity.name}.sh`])
         let buffers = [];
-        child.stdout.on('data',(bufffer)=>{
+        child.stdout.on('data',(buffer)=>{
           buffers.push(buffer);
         })
-        child.stdout.on('end',(bufffer)=>{
+        child.stdout.on('end',(buffer)=>{
           let log = Buffer.concat(buffers);
           console.log(log)
-
         })
       }
     })
