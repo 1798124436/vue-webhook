@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "satrt":"pm2 start ./webhooks.js --name webhook --watch",
+    "satrt":"pm2 start ./webhook.js --name webhook --watch",
     "stop":"pm2 stop webhook",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
